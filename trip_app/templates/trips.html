@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <h3>Hello, {{ user.first_name }}! Read about this trip.</h3>
+            <a class="btn btn-primary btn-lg" href="/dash">Dashboard</a>
+            <a href="/logout" class="btn btn-lg btn-primary">Logout</a>
+        </div>
+        <div class="container">
+            <h4 class="mt-4">{{ trip.city}}</h4> <br>
+            <div class=" p-2 border col-3">
+                Start Date: {{trip.start_date}} <br>
+                End Date: {{trip.end_date}} <br>
+                Created On: {{trip.created_at}} <br>
+                Last Updated: {{trip.updated_at}} <br>
+                Plan: {{trip.plan}} <br>
+                Created By: {{the_creator.first_name}} <br>
+            </div>
+        </div>
+    </body>
+</html>

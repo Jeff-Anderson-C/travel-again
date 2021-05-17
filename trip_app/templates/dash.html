@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div class="">
+                <div class="d-flex">
+                    <h2>Hello, {{ user.first_name }}!</h2>
+                    <a href="/logout" class="btn btn-lg btn-primary">Logout</a> 
+                    <a href="/new" class="btn btn-lg btn-primary">Create a new trip</a>
+                </div>
+            </div> 
+            <div>
+                <table class="table table-striped"><h4>Your Trips</h4>
+                    <thead>
+                        <th>Destination</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Plan</th>
+                        <th>Actions</th>
+                    </thead>
+                    <tbody>
+                        {% for trip in user_trips %}
+                        <tr>
+                            <td><a href="/trips/{{trip.id}}">{{trip.city}}</a></td>
+                            <td>{{trip.start_date}}</td>
+                            <td>{{trip.end_date}}</td>
+                            <td>{{trip.plan}}</td>
+                            <td><a href="/remove/{{trip.id}}">remove</a> <a href="/trips/edit/{{trip.id}}">edit</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <table class="table table-dark table-striped"><h4>Other Trips</h4>
+                    <thead>
+                        <th>Destination</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Plan</th>
+                        <th>Actions</th>
+                    </thead>
+                    <tbody>
+                        {% for trip in other_trips %}
+                        <tr>
+                            <td><a href="/trips/{{trip.id}}">{{trip.city}}</a></td>
+                            <td>{{trip.start_date}}</td>
+                            <td>{{trip.end_date}}</td>
+                            <td>{{trip.plan}}</td>
+                            <td><a href="/join/{{trip.id}}">Want to join?</a>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body> 
+</html>
